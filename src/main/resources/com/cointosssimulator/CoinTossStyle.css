@@ -1,0 +1,13 @@
+#AppLogo {
+    -fx-font-size: 32px;
+    -fx-padding: 20px;
+
+}
+
+#startButton {
+    -fx-font-size: 20px;
+}
+
+#backButton {
+    -fx-font-size: 20px;
+}
