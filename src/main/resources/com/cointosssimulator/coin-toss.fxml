@@ -17,9 +17,9 @@
       <Label fx:id="AppLogoLabel" text="Coin-toss Simulator" style=""></Label>
         <Label fx:id="headsOrTailsLabel" text="Heads, or Tails?"></Label>
         <HBox alignment="CENTER" spacing="60">
-            <Button fx:id="headsButton" text="Heads"></Button>
+            <Button fx:id="headsButton" text="Heads" onAction="#headsOrTails"></Button>
             <Label text=" or " fx:id="orLabel"></Label>
-            <Button fx:id="tailsButton" text="Tails"></Button>
+            <Button fx:id="tailsButton" text="Tails" onAction="#headsOrTails"></Button>
         </HBox>
         <ImageView fx:id="imageView" fitWidth="400.0" fitHeight="400.0">
         <Image url="@coinFlip.gif"/>
