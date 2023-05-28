@@ -1,4 +1,4 @@
-#AppLogo {
+#AppLogoLabel {
     -fx-font-size: 32px;
     -fx-padding: 20px;
 
@@ -9,5 +9,26 @@
 }
 
 #backButton {
+    -fx-font-size: 20px;
+}
+
+#headsOrTailsLabel {
+    -fx-font-size: 20px;
+    -fx-padding: 20px;
+}
+
+#headsButton {
+    -fx-font-size: 20px;
+}
+
+#tailsButton {
+    -fx-font-size: 20px;
+}
+
+#orLabel {
+    -fx-font-size: 20px;
+}
+
+#coinList {
     -fx-font-size: 20px;
 }
