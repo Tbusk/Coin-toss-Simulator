@@ -1,28 +1,12 @@
 #AppLogoLabel {
     -fx-font-size: 32px;
-    -fx-padding: 20px;
+    -fx-padding: 10px;
 
-}
-
-#startButton {
-    -fx-font-size: 20px;
-}
-
-#backButton {
-    -fx-font-size: 20px;
 }
 
 #headsOrTailsLabel {
     -fx-font-size: 20px;
     -fx-padding: 20px;
-}
-
-#headsButton {
-    -fx-font-size: 20px;
-}
-
-#tailsButton {
-    -fx-font-size: 20px;
 }
 
 #orLabel {
@@ -33,6 +17,10 @@
     -fx-font-size: 20px;
 }
 
-#resultsLabel {
+.label {
     -fx-font-size: 25px;
+}
+
+.button {
+    -fx-font-size: 20px;
 }

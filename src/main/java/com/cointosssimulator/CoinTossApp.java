@@ -6,11 +6,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-
 public class CoinTossApp extends Application {
     @Override
-    public void start(Stage stage){
+    public void start(Stage stage){ // Sets up the main page.  Loads the css file for styling.  Also loads the main menu fxml file for layout.
 
         try {
             Parent root = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
@@ -20,11 +18,11 @@ public class CoinTossApp extends Application {
             stage.setScene(scene);
             stage.show();
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println(e.getMessage());
         }
     }
 
     public static void main(String[] args) {
         launch();
-    }
+    } // Launches the app.
 }

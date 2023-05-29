@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
+
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.cointosssimulator.CoinTossController" style="-fx-background-color: white">
     <VBox alignment="CENTER" style="-fx-padding: 20px" spacing="15">
-        <Label fx:id="AppLogoLabel" text="Coin-toss Simulator" style=""></Label>
+        <Label fx:id="AppLogoLabel" text="Coin-toss Simulator"/>
         <ImageView fx:id="imageView" fitWidth="400.0" fitHeight="300.0">
             <Image url="@coinSpin.gif"/>
         </ImageView>
         <ComboBox fx:id="coinList" promptText="Select a coin to flip"/>
-        <Button fx:id="startButton" text="Begin" onAction="#switchToCoinFlipScene"/>
+        <HBox alignment="CENTER" spacing="75">
+            <Button fx:id="startButton" text="Begin" onAction="#switchToCoinFlipScene"/>
+            <Button fx:id="statisticsButton" text="Stats" onAction="#switchToStatsScene" />
+        </HBox>
+
     </VBox>
 </AnchorPane>
