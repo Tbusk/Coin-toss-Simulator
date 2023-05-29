@@ -14,10 +14,12 @@
             style="-fx-background-color: white">
     <StackPane style="-fx-padding: 20px">
         <VBox alignment="CENTER" spacing="50">
-            <Label text="Dime-Heads" style="-fx-font-size: 25px;"/>
+            <Label text="The Dime landed on heads!" style="-fx-font-size: 25px;"/>
+            <Label fx:id="resultsLabel"/>
             <ImageView fx:id="imageView" fitHeight="400.0" fitWidth="400.0">
                 <Image url="@Dime-heads.jpg"/>
             </ImageView>
+            <Button fx:id="backButton" text="Back" onAction="#switchToMainScreenScene"></Button>
         </VBox>
     </StackPane>
 </AnchorPane>

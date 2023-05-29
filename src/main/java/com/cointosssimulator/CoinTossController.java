@@ -1,5 +1,7 @@
 package com.cointosssimulator;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -34,7 +36,9 @@ public class CoinTossController implements Initializable {
     private Button startButton, backButton, headsButton, tailsButton;
 
     @FXML
-    private Label AppLogoLabel, headsOrTailsLabel, orLabel;
+    private Label AppLogoLabel, headsOrTailsLabel, orLabel, resultsLabel = new Label();
+
+    static Label resultsStaticLabel = new Label();
 
     @FXML
     private ImageView imageView;
@@ -80,8 +84,10 @@ public class CoinTossController implements Initializable {
             selection.add(1);
             System.out.println("User selected tails.");
             if (results.get(results.size()-1) == 1) {
+                resultsStaticLabel.setText("You selected tails. You Win!");
                 System.out.println("The coin landed on tails.");
             } else {
+                resultsStaticLabel.setText("You selected tails. You Lose!");
                 System.out.println("The coin landed on heads.");
             }
 
@@ -91,16 +97,20 @@ public class CoinTossController implements Initializable {
             System.out.println("User selected heads.");
             if (results.get(results.size()-1) == 1) {
                 System.out.println("The coin landed on tails.");
+                resultsStaticLabel.setText("You selected heads. You lose!");
             } else {
                 System.out.println("The coin landed on heads.");
+                resultsStaticLabel.setText("You selected heads. You Win!");
             }
         }
         if(coinSelection.equals("Quarter")){
                 try {
                     if(results.get(results.size() - 1) == 0) { // Heads
                         root = FXMLLoader.load(getClass().getResource("Quarter-heads.fxml"));
-                    } else {
+
+                    } else { // Tails
                         root = FXMLLoader.load(getClass().getResource("Quarter-tails.fxml"));
+
                     }
                     mainStage = (Stage)((Node)event.getSource()).getScene().getWindow();
                     mainScreen = new Scene(root);
@@ -113,7 +123,7 @@ public class CoinTossController implements Initializable {
             try {
                 if(results.get(results.size() - 1) == 0) { // Heads
                     root = FXMLLoader.load(getClass().getResource("Nickel-heads.fxml"));
-                } else {
+                } else { // Tails
                     root = FXMLLoader.load(getClass().getResource("Nickel-tails.fxml"));
                 }
                 mainStage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -127,7 +137,7 @@ public class CoinTossController implements Initializable {
             try {
                 if(results.get(results.size() - 1) == 0) { // Heads
                     root = FXMLLoader.load(getClass().getResource("Dime-heads.fxml"));
-                } else {
+                } else { // Tails
                     root = FXMLLoader.load(getClass().getResource("Dime-tails.fxml"));
                 }
                 mainStage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -145,6 +155,8 @@ public class CoinTossController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
                 coinList.getItems().addAll(createCoinList());
+                coinList.getSelectionModel().selectFirst();
+                resultsLabel.setText(resultsStaticLabel.getText());
         } catch (Exception e) {
             e.printStackTrace();
         }

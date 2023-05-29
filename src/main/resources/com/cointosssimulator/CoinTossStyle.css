@@ -32,3 +32,7 @@
 #coinList {
     -fx-font-size: 20px;
 }
+
+#resultsLabel {
+    -fx-font-size: 25px;
+}
