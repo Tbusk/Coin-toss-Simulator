@@ -40,15 +40,9 @@ public class CoinTossController implements Initializable {
     @FXML
     private Label AppLogoLabel, headsOrTailsLabel, orLabel, resultsLabel = new Label();
 
-    @FXML
-    private Label coinsTossed = new Label(), gamesWon = new Label(), gamesLost = new Label(), headsLanded = new Label(), tailsLanded = new Label();
+    static Label resultsStaticLabel = new Label();
 
-    static Label resultsStaticLabel = new Label(), coinsTossedLabel = new Label("Coins Tossed: "), gamesWonLabel = new Label("Games Won: "), gamesLostLabel = new Label("Games Lost: "), headsLandedLabel = new Label("Heads Landed On: "), tailsLandedLabel = new Label("Tails Landed On: ");
     // Storing the statistic values so the static labels can be updated, so the non-static FXML labels can be updated when needed.
-    static Integer gamesWonValue = 0;
-    static Integer gamesLostValue = 0;
-    static Integer headsLandedOnValue = 0;
-    static Integer tailsLandedOnValue = 0;
 
     @FXML
     private ImageView imageView; // Used in FXML to display images (required)
@@ -83,7 +77,7 @@ public class CoinTossController implements Initializable {
 
     public void switchToStatsScene(ActionEvent event) { // Switches to the stats page.  Loads the fxml file setup for it.
         try {
-            coinsTossed(); gameStatsUpdate();
+            //
             root = FXMLLoader.load(getClass().getResource("Statistics.fxml"));
             mainStage = (Stage)((Node)event.getSource()).getScene().getWindow();
             mainScreen = new Scene(root);
@@ -184,32 +178,6 @@ public class CoinTossController implements Initializable {
         }
     }
 
-    protected void gameStatsUpdate() { // Method responsible for updating the statistics page.  All the values on that page will be updated here, outside of the coin-tossed values;
-        gamesWonValue = 0;
-        gamesLostValue = 0;
-        headsLandedOnValue = 0;
-        tailsLandedOnValue = 0;
-        for(int i = 0; i < coinSidesRolled.size(); i++) {
-            if(Objects.equals(coinSidesRolled.get(i), coinSidesSelected.get(i)) && coinSidesSelected.get(i) != null) {
-                gamesWonValue++;
-            } else if (!Objects.equals(coinSidesRolled.get(i), coinSidesSelected.get(i)) && coinSidesSelected.get(i) != null){
-                gamesLostValue++;
-            }
-            if(coinSidesRolled.get(i) == 1) {
-                tailsLandedOnValue++;
-            } else if (coinSidesRolled.get(i) == 0) {
-                headsLandedOnValue++;
-            }
-        }
-        gamesWonLabel.setText("Games Won: " + gamesWonValue);
-        gamesLostLabel.setText("Games Lost: " + gamesLostValue);
-        headsLandedLabel.setText("Heads Landed On: " + headsLandedOnValue);
-        tailsLandedLabel.setText("Tails Landed On: " + tailsLandedOnValue);
-    }
-
-    protected void coinsTossed() { // Method responsible for updating the coins-tossed statistic on the statistic page
-        coinsTossedLabel.setText("Coins Tossed: " + coinSidesSelected.size());
-    }
 
 
     @Override
@@ -218,11 +186,6 @@ public class CoinTossController implements Initializable {
                 coinList.getItems().addAll(createCoinList());
                 coinList.getSelectionModel().selectFirst();
                 resultsLabel.setText(resultsStaticLabel.getText());
-                coinsTossed.setText(coinsTossedLabel.getText());
-                headsLanded.setText(headsLandedLabel.getText());
-                tailsLanded.setText(tailsLandedLabel.getText());
-                gamesWon.setText(gamesWonLabel.getText());
-                gamesLost.setText(gamesLostLabel.getText());
 
         } catch (Exception e) {
             e.printStackTrace();
