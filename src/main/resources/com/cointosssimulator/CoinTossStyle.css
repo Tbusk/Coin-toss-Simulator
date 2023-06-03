@@ -9,11 +9,7 @@
     -fx-padding: 20px;
 }
 
-#orLabel {
-    -fx-font-size: 20px;
-}
-
-#coinList {
+#orLabel, #coinList, .button {
     -fx-font-size: 20px;
 }
 
@@ -21,6 +17,12 @@
     -fx-font-size: 25px;
 }
 
-.button {
-    -fx-font-size: 20px;
+#localStatsLabel, #globalStatsLabel {
+    -fx-font-size: 28px;
+    -fx-underline: true;
+}
+#backToMain {
+    -fx-font-size: 24px;
+    -fx-pref-height: 50px;
+    -fx-pref-width: 150px;
 }

@@ -1,10 +1,12 @@
 package com.cointosssimulator;
 
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 public class CoinTossApp extends Application {
     @Override
@@ -17,6 +19,17 @@ public class CoinTossApp extends Application {
             stage.setTitle("Coin-toss Simulator");
             stage.setScene(scene);
             stage.show();
+            stage.setOnCloseRequest(new EventHandler<WindowEvent>() { // When a user tries to close the app, the global game values will be updated.
+                @Override
+                public void handle(WindowEvent windowEvent) {
+                    GlobalStatsHandler globalStatsHandler = new GlobalStatsHandler();
+
+                    System.out.println("\nUpdating global stats ...");
+                    globalStatsHandler.setGlobalGameValues();
+
+                    System.out.println("\nClosing ...");
+                }
+            });
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

@@ -16,7 +16,6 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Objects;
 import java.util.Random;
 import java.util.ResourceBundle;
 
@@ -109,25 +108,19 @@ public class CoinTossController implements Initializable {
 
         if(event.getSource()==tailsButton) { // if the tails button is pressed by the user, this will be executed.
             coinSidesSelected.add(1);
-            System.out.println("User selected tails.");
             if (coinSidesRolled.get(coinSidesRolled.size()-1) == 1) {
                 resultsStaticLabel.setText("You selected tails. You Win!");
-                System.out.println("The coin landed on tails.");
 
             } else {
                 resultsStaticLabel.setText("You selected tails. You Lose!");
-                System.out.println("The coin landed on heads.");
             }
 
         }
         if(event.getSource()==headsButton) { // if the heads button is pressed by the user, this will be executed.
             coinSidesSelected.add(0);
-            System.out.println("User selected heads.");
             if (coinSidesRolled.get(coinSidesRolled.size()-1) == 1) {
-                System.out.println("The coin landed on tails.");
                 resultsStaticLabel.setText("You selected heads. You lose!");
             } else {
-                System.out.println("The coin landed on heads.");
                 resultsStaticLabel.setText("You selected heads. You Win!");
             }
         }
@@ -177,7 +170,6 @@ public class CoinTossController implements Initializable {
             }
         }
     }
-
 
 
     @Override

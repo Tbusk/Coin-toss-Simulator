@@ -6,13 +6,27 @@
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.cointosssimulator.StatisticsController">
-    <VBox alignment="CENTER" style="-fx-padding: 20px" spacing="15">
+    <VBox alignment="CENTER_LEFT" style="-fx-padding: 45px;" spacing="20">
+        <HBox alignment="CENTER">
+            <Label fx:id="localStatsLabel" text="Local Stats"/>
+        </HBox>
         <Label fx:id="coinsTossed"/>
         <Label fx:id="gamesWon"/>
         <Label fx:id="gamesLost"/>
         <Label fx:id="headsLanded"/>
         <Label fx:id="tailsLanded"/>
-        <Button fx:id="backButton" text="Back" onAction="#switchBackToMainScene"/>
+        <HBox alignment="CENTER">
+            <Label fx:id="globalStatsLabel" text="Global Stats"/>
+        </HBox>
+        <Label fx:id="coinsTossedGlobal"/>
+        <Label fx:id="gamesWonGlobal"/>
+        <Label fx:id="gamesLostGlobal"/>
+        <Label fx:id="headsLandedGlobal"/>
+        <Label fx:id="tailsLandedGlobal"/>
+        <HBox alignment="CENTER">
+            <Button fx:id="backToMain" text="Back" onAction="#switchBackToMainScene"/>
+        </HBox>
     </VBox>
+
 
 </AnchorPane>
