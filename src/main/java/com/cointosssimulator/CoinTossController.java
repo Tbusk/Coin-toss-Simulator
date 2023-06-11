@@ -33,7 +33,7 @@ public class CoinTossController implements Initializable {
 
     // The buttons used in this project.  There is a start button, the back buttons, a select heads button, a select tails button, and a statistics button.
     @FXML
-    private Button startButton, backButton, headsButton, tailsButton, statisticsButton;
+    private Button startButton, backButton, headsButton, tailsButton, statisticsButton, helpButton;
 
     // The labels used in the project.  All of which are for text to be displayed on the screen. The static labels make updating the values of the regular labels possible.
     @FXML
@@ -78,6 +78,20 @@ public class CoinTossController implements Initializable {
         try {
             //
             root = FXMLLoader.load(getClass().getResource("Statistics.fxml"));
+            mainStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            mainScreen = new Scene(root);
+            mainScreen.getStylesheets().add(getClass().getResource("CoinTossStyle.css").toExternalForm());
+            coinSelection = coinList.getValue();
+            mainStage.setScene(mainScreen);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    public void switchToHelpScene(ActionEvent event) { // Switches to the stats page.  Loads the fxml file setup for it.
+        try {
+            //
+            root = FXMLLoader.load(getClass().getResource("HelpPage.fxml"));
             mainStage = (Stage)((Node)event.getSource()).getScene().getWindow();
             mainScreen = new Scene(root);
             mainScreen.getStylesheets().add(getClass().getResource("CoinTossStyle.css").toExternalForm());
